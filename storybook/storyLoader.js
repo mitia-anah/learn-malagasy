@@ -7,14 +7,14 @@ function loadStories() {
   require('../src/components/Example/Example.stories');
   require('./stories/Button/Button.stories');
   require('./stories/Welcome/Welcome.stories');
-  require('../src/components/Rosny/Rosny.stories')
+  require('../src/components/Phrase/Rosny.stories')
 }
 
 const stories = [
   '../src/components/Example/Example.stories',
   './stories/Button/Button.stories',
   './stories/Welcome/Welcome.stories',
-  '../src/components/Rosny/Rosny.stories',
+  '../src/components/Phrase/Rosny.stories',
 ];
 
 module.exports = {

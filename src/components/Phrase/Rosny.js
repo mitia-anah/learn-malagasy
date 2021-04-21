@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Text, SafeAreaView, TextInput } from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
-export default function Rosny({Text}) {
+export default function Phrase({Text}) {
 
   console.log(Text);
   return (

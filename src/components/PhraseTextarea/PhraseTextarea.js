@@ -1,22 +1,37 @@
 // components/Task.js
 import * as React from 'react';
-import { Text, SafeAreaView, TextInput, View } from 'react-native';
+import { StyleSheet,Text, SafeAreaView, TextInput, View } from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
-export default function PhraseTextarea() {
-const [text, onChangeText] = React.useState("");
+export default function PhraseTextarea({ defaultValue,onChangeText, inputValue, editableInput, unEditableInput}) {
     return (
     <SafeAreaView > 
         <View>
             <TextInput
-                // style={styles.input}
-                multiline={true}
-                numberOfLines={4}
+                style={styles.input}
                 onChangeText={onChangeText}
-                value={text}
-                placeholder="Enter text"
+                placeholder=''
+                value={inputValue}
+                editable={editableInput}
+            />
+
+            <TextInput
+            editable={unEditableInput}
+            value={defaultValue}
             />
         </View>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+    input: {
+        width:365,
+        height: 100,
+        borderWidth: 3,        
+    },
+//     border: 1px solid #E5E5E5;
+// box-sizing: border-box;
+// border-radius: 3px;
+
+})

@@ -1,25 +1,43 @@
 
 import * as React from 'react';
-import { StyleSheet, Textarea } from 'react-native';
+import {CenterView, TextInput} from 'react-native'
 
 import { storiesOf } from '@storybook/react-native'
 
 import PhraseTextarea from './PhraseTextarea';
-import style from '../../../storybook/stories/CenterView/style';
+// import { TextInput } from 'react-native';
 
+storiesOf("PhraseTextarea", module).add("editable", () => {
+  function Parent({ children, ...props }) {
+    const [state, setState] = React.useState('');
+    return <div>{children(state, setState)}</div>;
+  }
+
+  return (
+    <Parent>
+      {(state, setState) => (
+        <PhraseTextarea
+          inputValue={state.value}
+          onChangeText={e => setState({ value: e.target.value })}
+          multiline={true}
+          numberOfLines={4}
+          editableInput={true}
+          placeholder="Enter text"
+        />
+      )}
+    </Parent>
+  );
+});
 
 storiesOf('PhraseTextarea', module)
-.add('input', () => <PhraseTextarea input= {
-    <Textarea 
-    style={styles.textarea}
-    placeholder="Enter text"/>
-  }  />)
+.addDecorator(story => <CenterView>{story()}</CenterView>)
+.add('uneditable', () => 
+<PhraseTextarea
+    defaultValue='Roa ambiny folo'
+    multiline={true}
+    numberOfLines={4}
+    unEditableInput={false}
+/>)
   
-const styles = StyleSheet.create({
-    textarea: {
-        width:500,
-        borderWidth: 3,
-        
-    }
-})
+
 

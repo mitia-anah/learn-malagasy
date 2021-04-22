@@ -5,16 +5,16 @@
 
 function loadStories() {
   require('../src/components/Example/Example.stories');
+  require('../src/components/Phrase/Rosny.stories');
   require('./stories/Button/Button.stories');
   require('./stories/Welcome/Welcome.stories');
-  require('../src/components/Phrase/Rosny.stories')
 }
 
 const stories = [
   '../src/components/Example/Example.stories',
+  '../src/components/Phrase/Rosny.stories',
   './stories/Button/Button.stories',
   './stories/Welcome/Welcome.stories',
-  '../src/components/Phrase/Rosny.stories',
 ];
 
 module.exports = {

@@ -4,11 +4,11 @@ import { View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
 
-import Phrase from './Phrase';
+import Rosny from './Rosny';
 
 
-storiesOf('Phrase', module)
+storiesOf('Rosny', module)
   .addDecorator(story => <View>{story()}</View>)
-  .add('First name', () => <Phrase placeholder= {'Shrii'}/>)
-  .add('Last name', () => <Phrase placeholder= {'Jeddia Mickas '} />)
-  .add('Number', () => <Phrase placeholder= {'0346465168'} />)
+  .add('First name', () => <Rosny Text= {'Shrii'}/>)
+  .add('Last name', () => <Rosny Text= {'Jeddia Mickas '} />)
+  .add('Number', () => <Rosny Text= {'0346465168'} />)

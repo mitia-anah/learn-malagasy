@@ -1,43 +1,30 @@
-
 import * as React from 'react';
-import {CenterView, TextInput} from 'react-native'
-
-import { storiesOf } from '@storybook/react-native'
-
+import {View} from 'react-native';
+import {storiesOf} from '@storybook/react-native';
 import PhraseTextarea from './PhraseTextarea';
-// import { TextInput } from 'react-native';
 
-storiesOf("PhraseTextarea", module).add("editable", () => {
-  function Parent({ children, ...props }) {
-    const [state, setState] = React.useState('');
-    return <div>{children(state, setState)}</div>;
-  }
 
+function Edit() {
+  const [text, setText] = React.useState('');
   return (
-    <Parent>
-      {(state, setState) => (
-        <PhraseTextarea
-          inputValue={state.value}
-          onChangeText={e => setState({ value: e.target.value })}
-          multiline={true}
-          numberOfLines={4}
-          editableInput={true}
-          placeholder="Enter text"
-        />
-      )}
-    </Parent>
+    <PhraseTextarea
+      phrase={text}
+      editable={true}
+      onChange={input => setText(input)}
+    />
   );
-});
-
+}
 storiesOf('PhraseTextarea', module)
-.addDecorator(story => <CenterView>{story()}</CenterView>)
-.add('uneditable', () => 
-<PhraseTextarea
-    defaultValue='Roa ambiny folo'
-    multiline={true}
-    numberOfLines={4}
-    unEditableInput={false}
-/>)
-  
-
-
+  .addDecorator(story => <View style={'padding: 23px'}>{story()}</View>)
+  .add('editable input', () => <Edit />)
+  .add('not editable phrase', () => (
+    <PhraseTextarea phrase={'a word word'} editable={false} />
+  ))
+  .add('not editable and longer', () => (
+    <PhraseTextarea
+      phrase={
+        'Longer phrase Longer phrase Longer phrase Longer phrase Longer phrase'
+      }
+      editable={false}
+    />
+  ));

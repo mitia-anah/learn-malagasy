@@ -27,7 +27,11 @@ storiesOf('ActionButton', module)
   ));
 // .add('Correct Solution', () => (
 //   <FlatList>
-//     <ActionButton title="Correct" onPress={action('Button presse!')} name="" />
+//     <ActionButton
+//       title="Correct"
+//       onPress={action('Button presse!')}
+//       name=""
+//     />
 //   </FlatList>
 // ))
 // .add('Wrong Solution', () => (

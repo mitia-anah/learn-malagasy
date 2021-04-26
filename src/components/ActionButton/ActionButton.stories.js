@@ -24,16 +24,14 @@ storiesOf('ActionButton', module)
         name="arrow-forward"
       />
     </View>
+  ))
+  .add('Correct Solution', () => (
+    <ActionButton
+      title="Correct"
+      onPress={action('Button presse!')}
+      name="check"
+    />
+  ))
+  .add('Wrong Solution', () => (
+    <ActionButton title="wrong" onPress={action('Button press')} name="clear" />
   ));
-// .add('Correct Solution', () => (
-//   <FlatList>
-//     <ActionButton
-//       title="Correct"
-//       onPress={action('Button presse!')}
-//       name=""
-//     />
-//   </FlatList>
-// ))
-// .add('Wrong Solution', () => (
-//   <ActionButton title="next" onPress={action('Button press')} />
-// ));

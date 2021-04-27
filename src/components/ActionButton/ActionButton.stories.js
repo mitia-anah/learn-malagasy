@@ -22,7 +22,7 @@ storiesOf('ActionButton', module)
         title="Pick"
         onPress={action('Button press')}
         name="arrow-forward"
-        type="arrow"
+        color="#06B6D4"
       />
     </View>
   ))
@@ -31,14 +31,14 @@ storiesOf('ActionButton', module)
       title="Correct"
       onPress={action('Button presse!')}
       name="check"
-      type="correct"
+      color="#06D440"
     />
   ))
   .add('Wrong Solution', () => (
     <ActionButton
-      title="wrong"
+      title="Wrong"
       onPress={action('Button press')}
       name="clear"
-      type="wrong"
+      color="#D4068E"
     />
   ));

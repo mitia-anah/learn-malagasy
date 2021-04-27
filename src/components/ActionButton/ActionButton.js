@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
   },
 });
 
-function NextButton({onPress, title, name, color}) {
+function NextButton({onPress, title, name, color, style}) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text color={color}>{title}</Text>
+      <Text style={style}>{title}</Text>
       <Icon name={name} color={color} type="material" />
     </TouchableOpacity>
   );

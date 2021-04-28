@@ -28,4 +28,5 @@ function ToolButton({name}) {
     </TouchableOpacity>
   );
 }
+
 export default ToolButton;

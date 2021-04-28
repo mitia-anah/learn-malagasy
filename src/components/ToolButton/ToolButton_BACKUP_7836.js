@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import {Text, TouchableOpacity, StyleSheet, Button, View} from 'react-native';
 import {Icon} from 'react-native-elements/dist/icons/Icon';
 // import {Icon} from 'react-native-element
@@ -27,5 +28,15 @@ function ToolButton({name}) {
       </View>
     </TouchableOpacity>
   );
+=======
+import {Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
+// import {Icon} from 'react-native-element
+
+const styles = StyleSheet.create({});
+
+function ToolButton() {
+  return <TouchableOpacity></TouchableOpacity>;
+>>>>>>> added toolButton component
 }
+
 export default ToolButton;

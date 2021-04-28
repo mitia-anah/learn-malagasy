@@ -15,7 +15,6 @@ storiesOf('ToolButton', module)
       {story()}
     </View>
   ))
-
   .add('Add button', () => <ToolButton title="Add" name="add" />)
   .add('Seen button', () => <ToolButton title="Done" name="done" />)
   .add('Learnt button', () => <ToolButton title="Done-All" name="done-all" />)

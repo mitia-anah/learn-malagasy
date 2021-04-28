@@ -1,5 +1,5 @@
 import React from 'react';
-// mport {FlatList, View} from 'react-native';
+import {View} from 'react-native';
 import ToolButton from './ToolButton';
 import {storiesOf} from '@storybook/react-native';
 
@@ -15,8 +15,12 @@ storiesOf('ToolButton', module)
       {story()}
     </View>
   ))
-  .add('Add', () => (
-    <View>
-      <ToolButton />
-    </View>
+  .add('Add button', () => <ToolButton title="Add" name="add" />)
+  .add('Seen button', () => <ToolButton title="Done" name="done" />)
+  .add('Learnt button', () => <ToolButton title="Done-All" name="done-all" />)
+  .add('Back button', () => (
+    <ToolButton title="Chevron-Left" name="chevron-left" />
+  ))
+  .add('Night mode button', () => (
+    <ToolButton title="Brightness" name="brightness-6" />
   ));

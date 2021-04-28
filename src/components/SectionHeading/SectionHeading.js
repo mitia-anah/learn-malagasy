@@ -1,10 +1,25 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
-function SectionHeading() {
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+  },
+  textHeading: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    fontSize: 18,
+    lineHeight: 22,
+    color: '#111827',
+  },
+});
+function SectionHeading({title}) {
   return (
     <View>
-      <Text h3></Text>
+      <Text style={styles.textHeading} h3>
+        {title}
+      </Text>
     </View>
   );
 }

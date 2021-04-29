@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'space-between',
-    paddingStart: 5,
+    paddingStart: 7,
     paddingEnd: 14,
     paddingTop: 6,
   },
@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginRight: 4,
     marginLeft: 4,
+    fontFamily: 'Inter',
+    fontSize: 13,
+    fontWeight: 'normal',
+    lineHeight: 16,
   },
 });
 

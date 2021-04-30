@@ -15,4 +15,10 @@ storiesOf('ListItem', module)
       {story()}
     </View>
   ))
-  .add('Display list', () => <ListItem />);
+  .add('Display list', () => (
+    <ListItem
+      title="Learn"
+      name="arrow-forward"
+      color="#06B6D4"
+      type="material"></ListItem>
+  ));

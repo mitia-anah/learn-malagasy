@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {View, FlatList, Text, StyleSheet} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import ActionButton from '../ActionButton/ActionButton';
+import {View, FlatList, Text, StyleSheet, Alert} from 'react-native';
+import NextButton from '../ActionButton/ActionButton';
 
-// const dataList = require('../../data/categories.json');
-// console.log(dataList);
 const dataList = [
   {
     id: '1',
@@ -44,19 +41,29 @@ const DisplayList = ({name}) => (
 
 Separator = () => <View style={styles.separator} />;
 
-function ListItem() {
-  const renderItem = ({item}) => <DisplayList name={item.name} />;
-
+function ListItem({name, title, color}) {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <FlatList
+        // showsHorizontalScrollIndicator={false}
         data={dataList}
-        renderItem={renderItem}
+        renderItem={({item}) => {
+          return (
+            <View style={styles.listWrapper}>
+              <DisplayList name={item.name} />
+              <NextButton
+                style={styles.button}
+                name={name}
+                title={title}
+                onPress={() => alert('Welcom to learnt screen')}
+                color={color}
+              />
+            </View>
+          );
+        }}
         keyExtractor={item => item.id}
-        ItemSeparatorComponent={Separator}
-        R
-      />
-    </SafeAreaView>
+        ItemSeparatorComponent={Separator}></FlatList>
+    </View>
   );
 }
 
@@ -67,7 +74,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // padding: 20,
+  },
+  listWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingStart: 10,
+    paddingEnd: 20,
   },
   separator: {
     flex: 1,
@@ -80,8 +94,12 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontStyle: 'normal',
     fontSize: 16,
-    lineHeight: 19,
-    padding: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingStart: 10,
+  },
+  button: {
+    color: '#06B6D4',
   },
 });
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {connect} from 'react-redux';
 import ListItem from '../ListItem/ListItem';
 import SectionHeading from '../SectionHeading/SectionHeading';
 
@@ -32,4 +33,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default List;
+const mapStateToProps = state => {
+  console.log(state);
+  const {category} = state;
+  return {category};
+};
+
+export default connect(mapStateToProps)(List);

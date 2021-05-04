@@ -1,25 +1,12 @@
 import React from 'react';
-import List from './src/components/List/List';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import {createStackNavigator} from '@react-navigation/stack';
-import categoryReducer from './src/Reducer/Reducer';
 import {NavigationContainer} from '@react-navigation/native';
-
-const store = createStore(categoryReducer);
-const Stack = createStackNavigator();
+import HomeScreenU1 from './src/components/HomeScreenU1/HomeScreenU1';
 
 function App() {
-  // ...
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="List" component={List} />
-          {/* <Stack.Screen name="Friends" component={FriendsScreen} /> */}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <NavigationContainer>
+      <HomeScreenU1 />
+    </NavigationContainer>
   );
 }
 

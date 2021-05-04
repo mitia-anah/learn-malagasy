@@ -1,24 +1,23 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {connect} from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {View, StyleSheet, FlatList, Text} from 'react-native';
 import ListItem from '../ListItem/ListItem';
 import SectionHeading from '../SectionHeading/SectionHeading';
+import NextButton from '../ActionButton/ActionButton';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
-function List({name, title, color, headingTitle}) {
+function List({headingTitle, name, title, color}) {
   return (
-    <View style={styles.container}>
+    <View>
       <SectionHeading style={styles.heading} title={headingTitle} />
-      <ListItem style={styles.list} name={name} title={title} color={color} />
+      <ListItem />
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
     paddingTop: 40,
-    width: '100%',
-    height: '100%',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
   },
   heading: {
     fontFamily: 'Inter',
@@ -28,15 +27,14 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     color: '#111827',
   },
-  list: {
-    paddingStart: 30,
+  listWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingStart: 10,
+    paddingEnd: 20,
   },
 });
 
-const mapStateToProps = state => {
-  console.log(state);
-  const {category} = state;
-  return {category};
-};
-
-export default connect(mapStateToProps)(List);
+export default List;

@@ -1,68 +1,39 @@
-import React, {useEffect, useState} from 'react';
-import {View, FlatList, Text, StyleSheet, Alert} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
+import categoryList from '../../data/categories.json';
+import {Icon} from 'react-native-elements';
+
 import NextButton from '../ActionButton/ActionButton';
-
-const dataList = [
-  {
-    id: '1',
-    name: 'An unncessessarly loooong cat... ',
-  },
-  {
-    id: '2',
-    name: 'At the market',
-  },
-  {
-    id: '3',
-    name: 'Single words',
-  },
-  {
-    id: '4',
-    name: 'At restaurent',
-  },
-  {
-    id: '5',
-    name: 'Food',
-  },
-  {
-    id: '6',
-    name: 'All',
-  },
-  {
-    id: '7',
-    name: 'Greetings',
-  },
-];
-
-const DisplayList = ({name}) => (
-  <View>
-    <Text style={styles.text}>{name}</Text>
-  </View>
-);
 
 Separator = () => <View style={styles.separator} />;
 
 function ListItem({name, title, color}) {
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    setCategory(categoryList.categories);
+  }, []);
   return (
     <View style={styles.container}>
       <FlatList
-        // showsHorizontalScrollIndicator={false}
-        data={dataList}
-        renderItem={({item}) => {
-          return (
-            <View style={styles.listWrapper}>
-              <DisplayList name={item.name} />
-              <NextButton
-                style={styles.button}
-                name={name}
-                title={title}
-                onPress={() => alert('Welcom to learnt screen')}
-                color={color}
-              />
-            </View>
-          );
-        }}
+        data={category}
+        renderItem={({item}) => (
+          <ListItem
+            style={styles.text}
+            name={name}
+            id={item.id}
+            title={item.name.en}
+          />
+        )}
         keyExtractor={item => item.id}
         ItemSeparatorComponent={Separator}></FlatList>
+      <Text>{name}</Text>
+      <NextButton
+        style={styles.text}
+        title={title}
+        onPress={() => alert('Welcom to learnt screen')}
+        color={color}
+      />
     </View>
   );
 }
@@ -70,18 +41,6 @@ function ListItem({name, title, color}) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffffff',
-    borderRadius: 3,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  listWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingStart: 10,
-    paddingEnd: 20,
   },
   separator: {
     flex: 1,

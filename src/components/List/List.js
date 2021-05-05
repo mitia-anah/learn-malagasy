@@ -1,39 +1,52 @@
-import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, FlatList, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {FlatList, View, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import ListItem from '../ListItem/ListItem';
-import SectionHeading from '../SectionHeading/SectionHeading';
+import categoryList from '../../data/categories.json';
 import NextButton from '../ActionButton/ActionButton';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
-function List({headingTitle, name, title, color}) {
+Separator = () => <View style={styles.separator} />;
+
+function List() {
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    setCategory(categoryList.categories);
+  }, []);
   return (
-    <View>
-      <SectionHeading style={styles.heading} title={headingTitle} />
-      <ListItem />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        horizontal={false}
+        data={category}
+        renderItem={({item}) => {
+          return (
+            <View style={styles.listWrapper}>
+              <ListItem
+                title={item.name.en}
+                onPress={() => alert('welcome to learnt screen')}
+              />
+            </View>
+          );
+        }}
+        keyExtractor={item => item.id}
+        ItemSeparatorComponent={Separator}></FlatList>
+    </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 40,
+    height: '100%',
     display: 'flex',
-    flexDirection: 'row',
-  },
-  heading: {
-    fontFamily: 'Inter',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    fontSize: 18,
-    lineHeight: 22,
-    color: '#111827',
   },
   listWrapper: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingStart: 10,
-    paddingEnd: 20,
+    flexDirection: 'column',
+  },
+  separator: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E5E5E5',
   },
 });
 

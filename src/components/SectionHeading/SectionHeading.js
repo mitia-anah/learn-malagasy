@@ -17,9 +17,7 @@ const styles = StyleSheet.create({
 function SectionHeading({title}) {
   return (
     <View>
-      <Text style={styles.textHeading} h3>
-        {title}
-      </Text>
+      <Text h3>{title}</Text>
     </View>
   );
 }

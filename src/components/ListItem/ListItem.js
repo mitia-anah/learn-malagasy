@@ -1,104 +1,79 @@
-import React, {useEffect, useState} from 'react';
-import {View, FlatList, Text, StyleSheet, Alert} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import categoryList from '../../data/categories.json';
+import SectionHeading from '../SectionHeading/SectionHeading';
 import NextButton from '../ActionButton/ActionButton';
+import {useNavigation} from '@react-navigation/native';
 
-const dataList = [
-  {
-    id: '1',
-    name: 'An unncessessarly loooong cat... ',
-  },
-  {
-    id: '2',
-    name: 'At the market',
-  },
-  {
-    id: '3',
-    name: 'Single words',
-  },
-  {
-    id: '4',
-    name: 'At restaurent',
-  },
-  {
-    id: '5',
-    name: 'Food',
-  },
-  {
-    id: '6',
-    name: 'All',
-  },
-  {
-    id: '7',
-    name: 'Greetings',
-  },
-];
+const Separator = () => <View style={styles.separator} />;
 
-const DisplayList = ({name}) => (
-  <View>
-    <Text style={styles.text}>{name}</Text>
-  </View>
-);
+function ListItem() {
+  const [category, setCategory] = useState([]);
+  const navigation = useNavigation();
 
-Separator = () => <View style={styles.separator} />;
+  useEffect(() => {
+    setCategory(categoryList.categories);
+  }, []);
 
-function ListItem({name, title, color}) {
   return (
     <View style={styles.container}>
-      <FlatList
-        // showsHorizontalScrollIndicator={false}
-        data={dataList}
-        renderItem={({item}) => {
-          return (
-            <View style={styles.listWrapper}>
-              <DisplayList name={item.name} />
-              <NextButton
-                style={styles.button}
-                name={name}
-                title={title}
-                onPress={() => alert('Welcom to learnt screen')}
-                color={color}
-              />
-            </View>
-          );
-        }}
-        keyExtractor={item => item.id}
-        ItemSeparatorComponent={Separator}></FlatList>
+      <SectionHeading title="Select category:" />
+      <View style={styles.innerContainer}>
+        <FlatList
+          data={category}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity style={styles.listWrapper}>
+                <Text>{item.name.en}</Text>
+                <NextButton
+                  style={styles.arrow}
+                  title="Pick"
+                  name="arrow-forward"
+                  type="material"
+                  onPress={() =>
+                    navigation.navigate('LearningPhrase', {
+                      categoryName: item.name.en,
+                      categoryId: item.id,
+                    })
+                  }
+                />
+              </TouchableOpacity>
+            );
+          }}
+          keyExtractor={item => item.id}
+          ItemSeparatorComponent={Separator}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 68,
+    marginStart: 23,
+    marginEnd: 23,
+    marginBottom: 207,
+  },
+  innerContainer: {
     backgroundColor: '#ffffff',
+    borderColor: '#E5E5E5',
     borderRadius: 3,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   listWrapper: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingStart: 10,
-    paddingEnd: 20,
+    padding: 16,
+    overflow: 'scroll',
   },
   separator: {
     flex: 1,
     height: 1,
     backgroundColor: '#E5E5E5',
   },
-  text: {
-    color: '#111827',
-    fontFamily: 'Inter',
-    fontWeight: 'normal',
-    fontStyle: 'normal',
-    fontSize: 16,
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingStart: 10,
-  },
-  button: {
+  arrow: {
     color: '#06B6D4',
   },
 });

@@ -6,16 +6,15 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
   },
 });
 
-function NextButton({onPress, title, name, color, style}) {
+function NextButton({onPress, title, name, style}) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={style}>{title}</Text>
-      <Icon name={name} color={color} type="material" />
+      <Icon name={name} color="#06B6D4" type="material" />
     </TouchableOpacity>
   );
 }

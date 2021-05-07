@@ -1,5 +1,5 @@
-const categoriesData = require('./categories.json');
-const phrasesData = require('./phrases.json');
+export const categoriesData = require('./categories.json');
+export const phrasesData = require('./phrases.json');
 
 export const LANGUAGE_NAMES = {
   MG: 'mg',

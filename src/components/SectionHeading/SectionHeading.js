@@ -12,12 +12,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 22,
     color: '#111827',
+    padding: 16,
+    paddingStart: 0,
   },
 });
 function SectionHeading({title}) {
   return (
     <View>
-      <Text h3>{title}</Text>
+      <Text style={styles.textHeading} h3>
+        {title}
+      </Text>
     </View>
   );
 }

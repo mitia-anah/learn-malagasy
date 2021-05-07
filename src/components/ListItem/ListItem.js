@@ -32,7 +32,10 @@ function ListItem() {
                   name="arrow-forward"
                   type="material"
                   onPress={() =>
-                    navigation.navigate('LearningPhrase', {name: item.name.en})
+                    navigation.navigate('LearningPhrase', {
+                      categoryName: item.name.en,
+                      categoryId: item.id,
+                    })
                   }
                 />
               </TouchableOpacity>

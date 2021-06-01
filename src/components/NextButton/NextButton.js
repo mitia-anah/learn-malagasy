@@ -2,6 +2,8 @@
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native"
 
+// The styles contain many duplicates
+
 const styles = StyleSheet.create({
     buttonContainerFill: {
         width: 90,
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         color: '#fff'
-    },
+    }, // Blue
     buttonTextBleu: {
         textAlign: 'center',
         paddingTop: 8,

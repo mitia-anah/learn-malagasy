@@ -2,6 +2,7 @@ import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements/dist/icons/Icon';
 
+// Items not centered vertically
 const styles = StyleSheet.create({
   container: {
     width: 90,
@@ -30,6 +31,8 @@ const styles = StyleSheet.create({
   },
 });
 
+
+// Languages shoud be prop of the component as they will change. The component should not have to know about the languages selected.
 function LanguageSwitcher() {
   return (
     <View style={styles.container}>

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  // Do you use the container styles?
   container: {
     backgroundColor: '#fff',
   },

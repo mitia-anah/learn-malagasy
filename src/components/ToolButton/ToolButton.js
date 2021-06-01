@@ -3,6 +3,8 @@ import {Text, TouchableOpacity, StyleSheet, Button, View} from 'react-native';
 import {Icon} from 'react-native-elements/dist/icons/Icon';
 // import {Icon} from 'react-native-element
 
+// remove comments and unused imports
+// Icon not perfectly centered
 const styles = StyleSheet.create({
   container: {
     display: 'flex',

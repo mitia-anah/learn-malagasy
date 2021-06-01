@@ -15,6 +15,7 @@ storiesOf('List', module)
     </View>
   ))
   .add('Displays list of number of list items,', () => (
+    // The props you pass to list do not fit what the List component expects. 
     <List
       title="Learn"
       name="arrow-forward"

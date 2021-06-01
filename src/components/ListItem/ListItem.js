@@ -15,7 +15,7 @@ function ListItem() {
   useEffect(() => {
     setCategory(categoryList.categories);
   }, []);
-
+  // The ListItem is only a single row in the list, so one text and one action button, not the whole list. It should also get its contents as a prop because it is used in many different places around the app, not always only showing the categories.
   return (
     <View style={styles.container}>
       <SectionHeading title="Select category:" />

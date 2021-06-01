@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
 });
 
 function NextButton({onPress, title, name, style}) {
+  // Icon too big, wrong color
+  // prop "name" would be easierto understand if it was named iconName
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={style}>{title}</Text>
